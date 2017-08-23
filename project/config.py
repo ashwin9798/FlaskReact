@@ -1,3 +1,5 @@
+import os
+
 class BaseConfig:
     """Base configuration"""
     DEBUG = False
