@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+
+  default-service:
+    container_name: default-service
+    build: .
+    volumes:
+      - '.:/usr/src/app'
+    ports:
+      - 5001:5000 # expose ports - HOST:CONTAINER
