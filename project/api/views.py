@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from sqlalchemy import exc
 
 from project.api.models import User
@@ -40,7 +40,7 @@ def add_user():
     try:
         user = User.query.filter_by(email=email).first()
         if not user:
-            db.session.add(User(username=username, email=email, password=password))
+            db.session.add(User(username=username, email=email))
             db.session.commit()
             response_object = {
                 'status': 'success',
@@ -52,7 +52,7 @@ def add_user():
                 'status': 'fail',
                 'message': 'Sorry. That email already exists.'
             }
-
+            return jsonify(response_object), 400
     except exc.IntegrityError as e:
         db.session.rollback()
         response_object = {
