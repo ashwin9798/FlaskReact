@@ -13,7 +13,7 @@ def ping_pong():
         'message': 'pong!'
     })
 
-@users_blueprint.route('/', methods=['GET'])
+@users_blueprint.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         username = request.form['username']
