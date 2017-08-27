@@ -20,8 +20,7 @@ class TestDevelopmentConfig(TestCase):
         self.assertTrue(app.config['DEBUG'] is True)
         self.assertFalse(current_app is None)
         self.assertTrue(
-            app.config['SQLALCHEMY_DATABASE_URI'] ==
-            os.environ.get('DATABASE_URL')
+            app.config['SQLALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_URL')
         )
 
 
@@ -36,8 +35,7 @@ class TestTestingConfig(TestCase):
         self.assertTrue(app.config['TESTING'])
         self.assertFalse(app.config['PRESERVE_CONTEXT_ON_EXCEPTION'])
         self.assertTrue(
-            app.config['SQLALCHEMY_DATABASE_URI'] ==
-            os.environ.get('DATABASE_URL')
+            app.config['SQLALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_URL')
         )
 
 
