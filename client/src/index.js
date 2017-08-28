@@ -1,11 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 
 const App = () => {
   constructor() {
     super()
+    this.getUsers()
   }
+
+  getUsers() {
+    axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
+      .then((res) => { console.log(res); })
+      .catch((err) => { console.log(err); })
+  }
+
   return (
     <div className="container">
       <div className="row">
